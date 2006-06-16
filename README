@@ -1,0 +1,184 @@
+libcdio
+------------------------------------------
+The libcdio package contains a library which encapsulates CD-ROM
+reading and control. Applications wishing to be oblivious of the OS-
+and device-dependent properties of a CD-ROM can use this library.
+
+Also included is a library for working with ISO-9660 filesystems as is
+also the CD-DA error/jitter correction library from cdparanoia
+(http://www.xiph.org/paranoia).
+
+Some support for disk image types like CDRWin's BIN/CUE format,
+cdrdao's TOC format, and Nero's NRG format are available. Therefore,
+applications that use this library also have the ability to read disc
+images as though they were CD's.
+
+Runtime requirements:
+  cygwin-1.5.19-4
+  libcddb2-1.2.1-1
+  libiconv2-1.9.2-2
+  libncurses8-5.5-2
+  libvcdinfo0-0.7.23-1
+
+Build requirements:
+(besides corresponding -devel packages)
+  cygwin-1.5.19-4
+  autoconf2.5-2.59-3
+  automake1.9-1.9.6-1
+  binutils-20050610-1
+  cygport-0.1.93-1
+  gawk-3.1.5-2
+  gcc-core-3.4.4-1
+  libtool1.5-1.5.22-1
+  make-3.80-1
+  pkg-config-0.20-1
+  sed-4.1.4-1
+  w32api-3.7-1
+
+Canonical website:
+  http://www.gnu.org/software/libcdio/
+
+Canonical download:
+  http://ftp.gnu.org/gnu/libcdio/
+
+-------------------------------------------
+
+Build instructions:
+  unpack libcdio-0.77-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./libcdio-0.77-X.cygport all
+
+This will create:
+  /usr/src/libcdio-0.77-X-src.tar.bz2
+  /usr/src/libcdio-0.77-X.tar.bz2
+  /usr/src/libcdio-devel-0.77-X.tar.bz2
+  /usr/src/libcdio_cdda0-0.77-X.tar.bz2
+  /usr/src/libcdio_paranoia0-0.77-X.tar.bz2
+  /usr/src/libcdio++0-0.77-X.tar.bz2
+  /usr/src/libcdio7-0.77-X.tar.bz2
+  /usr/src/libiso9660_5-0.77-X.tar.bz2
+  /usr/src/libudf0-0.77-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /etc/postinstall/libcdio.sh
+  /usr/bin/cd-drive.exe
+  /usr/bin/cd-info.exe
+  /usr/bin/cd-paranoia.exe
+  /usr/bin/cd-read.exe
+  /usr/bin/cdda-player.exe
+  /usr/bin/iso-info.exe
+  /usr/bin/iso-read.exe
+  /usr/share/doc/Cygwin/libcdio-0.77.README
+  /usr/share/doc/libcdio-0.77/AUTHORS
+  /usr/share/doc/libcdio-0.77/COPYING
+  /usr/share/doc/libcdio-0.77/ChangeLog
+  /usr/share/doc/libcdio-0.77/INSTALL
+  /usr/share/doc/libcdio-0.77/NEWS
+  /usr/share/doc/libcdio-0.77/README
+  /usr/share/doc/libcdio-0.77/THANKS
+  /usr/share/doc/libcdio-0.77/TODO
+  /usr/share/info/libcdio.info.gz
+  /usr/share/man/jp/man1/cd-paranoia.1.gz
+  /usr/share/man/man1/cd-paranoia.1.gz
+
+Files included in the library packages:
+
+  /usr/bin/cygcdio++-0.dll
+
+  /usr/bin/cygcdio-7.dll
+
+  /usr/bin/cygcdio_cdda-0.dll
+
+  /usr/bin/cygcdio_paranoia-0.dll
+
+  /usr/bin/cygiso9660++-0.dll
+
+  /usr/bin/cygiso9660-5.dll
+
+  /usr/bin/cygudf-0.dll
+
+Files included in the devel package:
+
+  /usr/include/cdio++/cdio.hpp
+  /usr/include/cdio++/cdtext.hpp
+  /usr/include/cdio++/device.hpp
+  /usr/include/cdio++/devices.hpp
+  /usr/include/cdio++/disc.hpp
+  /usr/include/cdio++/enum.hpp
+  /usr/include/cdio++/iso9660.hpp
+  /usr/include/cdio++/mmc.hpp
+  /usr/include/cdio++/read.hpp
+  /usr/include/cdio++/track.hpp
+  /usr/include/cdio/audio.h
+  /usr/include/cdio/bytesex.h
+  /usr/include/cdio/bytesex_asm.h
+  /usr/include/cdio/cd_types.h
+  /usr/include/cdio/cdda.h
+  /usr/include/cdio/cdio.h
+  /usr/include/cdio/cdio_config.h
+  /usr/include/cdio/cdtext.h
+  /usr/include/cdio/device.h
+  /usr/include/cdio/disc.h
+  /usr/include/cdio/ds.h
+  /usr/include/cdio/dvd.h
+  /usr/include/cdio/ecma_167.h
+  /usr/include/cdio/iso9660.h
+  /usr/include/cdio/logging.h
+  /usr/include/cdio/mmc.h
+  /usr/include/cdio/paranoia.h
+  /usr/include/cdio/posix.h
+  /usr/include/cdio/read.h
+  /usr/include/cdio/rock.h
+  /usr/include/cdio/sector.h
+  /usr/include/cdio/track.h
+  /usr/include/cdio/types.h
+  /usr/include/cdio/udf.h
+  /usr/include/cdio/udf_file.h
+  /usr/include/cdio/udf_time.h
+  /usr/include/cdio/util.h
+  /usr/include/cdio/version.h
+  /usr/include/cdio/xa.h
+  /usr/lib/libcdio++.a
+  /usr/lib/libcdio++.dll.a
+  /usr/lib/libcdio++.la
+  /usr/lib/libcdio.a
+  /usr/lib/libcdio.dll.a
+  /usr/lib/libcdio.la
+  /usr/lib/libcdio_cdda.a
+  /usr/lib/libcdio_cdda.dll.a
+  /usr/lib/libcdio_cdda.la
+  /usr/lib/libcdio_paranoia.a
+  /usr/lib/libcdio_paranoia.dll.a
+  /usr/lib/libcdio_paranoia.la
+  /usr/lib/libiso9660++.a
+  /usr/lib/libiso9660++.dll.a
+  /usr/lib/libiso9660++.la
+  /usr/lib/libiso9660.a
+  /usr/lib/libiso9660.dll.a
+  /usr/lib/libiso9660.la
+  /usr/lib/libudf.a
+  /usr/lib/libudf.dll.a
+  /usr/lib/libudf.la
+  /usr/lib/pkgconfig/libcdio.pc
+  /usr/lib/pkgconfig/libcdio_cdda.pc
+  /usr/lib/pkgconfig/libcdio_paranoia.pc
+  /usr/lib/pkgconfig/libiso9660.pc
+
+------------------
+
+Port Notes:
+
+----- version 0.77-1 -----
+Version and ABI bump.
+
+----- version 0.76-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/
