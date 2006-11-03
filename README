@@ -14,25 +14,25 @@ applications that use this library also have the ability to read disc
 images as though they were CD's.
 
 Runtime requirements:
-  cygwin-1.5.19-4
+  cygwin-1.5.21-2
   libcddb2-1.2.1-1
-  libiconv2-1.9.2-2
+  libiconv2-1.11-1
   libncurses8-5.5-2
   libvcdinfo0-0.7.23-1
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.19-4
-  autoconf2.5-2.59-3
+  cygwin-1.5.21-2
+  autoconf2.5-2.60-1
   automake1.9-1.9.6-1
   binutils-20050610-1
-  cygport-0.1.93-1
+  cygport-0.2.6-1
   gawk-3.1.5-2
   gcc-core-3.4.4-1
-  libtool1.5-1.5.22-1
-  make-3.80-1
+  libtool1.5-1.5.23a-1
+  make-3.81-1
   pkg-config-0.20-1
-  sed-4.1.4-1
+  sed-4.1.5-1
   w32api-3.7-1
 
 Canonical website:
@@ -63,8 +63,9 @@ This will create:
 
 -------------------------------------------
 
-Files included in the binary package:
+Files included in the binary packages:
 
+(libcdio)
   /etc/postinstall/libcdio.sh
   /usr/bin/cd-drive.exe
   /usr/bin/cd-info.exe
@@ -86,24 +87,26 @@ Files included in the binary package:
   /usr/share/man/jp/man1/cd-paranoia.1.gz
   /usr/share/man/man1/cd-paranoia.1.gz
 
-Files included in the library packages:
-
+(libcdio++0)
   /usr/bin/cygcdio++-0.dll
-
-  /usr/bin/cygcdio-7.dll
-
-  /usr/bin/cygcdio_cdda-0.dll
-
-  /usr/bin/cygcdio_paranoia-0.dll
-
   /usr/bin/cygiso9660++-0.dll
 
+(libcdio7)
+  /usr/bin/cygcdio-7.dll
+
+(libcdio_cdda0)
+  /usr/bin/cygcdio_cdda-0.dll
+
+(libcdio_paranoia0)
+  /usr/bin/cygcdio_paranoia-0.dll
+
+(libiso9660_5)
   /usr/bin/cygiso9660-5.dll
 
+(libudf0)
   /usr/bin/cygudf-0.dll
 
-Files included in the devel package:
-
+(libcdio-devel)
   /usr/include/cdio++/cdio.hpp
   /usr/include/cdio++/cdtext.hpp
   /usr/include/cdio++/device.hpp
@@ -172,6 +175,9 @@ Files included in the devel package:
 ------------------
 
 Port Notes:
+
+----- version 0.78.1-1 -----
+Version bump.
 
 ----- version 0.77-1 -----
 Version and ABI bump.
