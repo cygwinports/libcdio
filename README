@@ -14,7 +14,7 @@ applications that use this library also have the ability to read disc
 images as though they were CD's.
 
 Runtime requirements:
-  cygwin-1.5.21-2
+  cygwin-1.5.22-1
   libcddb2-1.2.1-1
   libiconv2-1.11-1
   libncurses8-5.5-2
@@ -22,16 +22,16 @@ Runtime requirements:
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.21-2
+  cygwin-1.5.22-1
   autoconf2.5-2.60-1
   automake1.9-1.9.6-1
-  binutils-20050610-1
+  binutils-20060817-1
   cygport-0.2.6-1
   gawk-3.1.5-2
   gcc-core-3.4.4-1
   libtool1.5-1.5.23a-1
   make-3.81-1
-  pkg-config-0.20-1
+  pkg-config-0.21-1
   sed-4.1.5-1
   w32api-3.7-1
 
@@ -44,22 +44,22 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack libcdio-0.77-X-src.tar.bz2
+  unpack libcdio-0.78.2-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./libcdio-0.77-X.cygport all
+  cygport ./libcdio-0.78.2-X.cygport all
 
 This will create:
-  /usr/src/libcdio-0.77-X-src.tar.bz2
-  /usr/src/libcdio-0.77-X.tar.bz2
-  /usr/src/libcdio-devel-0.77-X.tar.bz2
-  /usr/src/libcdio_cdda0-0.77-X.tar.bz2
-  /usr/src/libcdio_paranoia0-0.77-X.tar.bz2
-  /usr/src/libcdio++0-0.77-X.tar.bz2
-  /usr/src/libcdio7-0.77-X.tar.bz2
-  /usr/src/libiso9660_5-0.77-X.tar.bz2
-  /usr/src/libudf0-0.77-X.tar.bz2
+  /usr/src/libcdio-0.78.2-X-src.tar.bz2
+  /usr/src/libcdio-0.78.2-X.tar.bz2
+  /usr/src/libcdio-devel-0.78.2-X.tar.bz2
+  /usr/src/libcdio_cdda0-0.78.2-X.tar.bz2
+  /usr/src/libcdio_paranoia0-0.78.2-X.tar.bz2
+  /usr/src/libcdio++0-0.78.2-X.tar.bz2
+  /usr/src/libcdio7-0.78.2-X.tar.bz2
+  /usr/src/libiso9660_5-0.78.2-X.tar.bz2
+  /usr/src/libudf0-0.78.2-X.tar.bz2
 
 -------------------------------------------
 
@@ -74,15 +74,15 @@ Files included in the binary packages:
   /usr/bin/cdda-player.exe
   /usr/bin/iso-info.exe
   /usr/bin/iso-read.exe
-  /usr/share/doc/Cygwin/libcdio-0.77.README
-  /usr/share/doc/libcdio-0.77/AUTHORS
-  /usr/share/doc/libcdio-0.77/COPYING
-  /usr/share/doc/libcdio-0.77/ChangeLog
-  /usr/share/doc/libcdio-0.77/INSTALL
-  /usr/share/doc/libcdio-0.77/NEWS
-  /usr/share/doc/libcdio-0.77/README
-  /usr/share/doc/libcdio-0.77/THANKS
-  /usr/share/doc/libcdio-0.77/TODO
+  /usr/share/doc/Cygwin/libcdio-0.78.2.README
+  /usr/share/doc/libcdio-0.78.2/AUTHORS
+  /usr/share/doc/libcdio-0.78.2/COPYING
+  /usr/share/doc/libcdio-0.78.2/ChangeLog
+  /usr/share/doc/libcdio-0.78.2/INSTALL
+  /usr/share/doc/libcdio-0.78.2/NEWS
+  /usr/share/doc/libcdio-0.78.2/README
+  /usr/share/doc/libcdio-0.78.2/THANKS
+  /usr/share/doc/libcdio-0.78.2/TODO
   /usr/share/info/libcdio.info.gz
   /usr/share/man/jp/man1/cd-paranoia.1.gz
   /usr/share/man/man1/cd-paranoia.1.gz
@@ -175,6 +175,9 @@ Files included in the binary packages:
 ------------------
 
 Port Notes:
+
+----- version 0.78.2-1 -----
+Version bump.
 
 ----- version 0.78.1-1 -----
 Version bump.
