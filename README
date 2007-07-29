@@ -14,22 +14,22 @@ applications that use this library also have the ability to read disc
 images as though they were CD's.
 
 Runtime requirements:
-  cygwin-1.5.22-1
-  libcddb2-1.2.1-1
+  cygwin-1.5.24-2
+  libcddb2-1.3.0-1
   libiconv2-1.11-1
   libncurses8-5.5-2
   libvcdinfo0-0.7.23-1
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.22-1
-  autoconf2.5-2.60-1
-  automake1.9-1.9.6-1
+  cygwin-1.5.24-2
+  autoconf2.5-2.61-1
+  automake1.9-1.9.6-2
   binutils-20060817-1
-  cygport-0.2.6-1
-  gawk-3.1.5-2
-  gcc-core-3.4.4-1
-  libtool1.5-1.5.23a-1
+  cygport-0.3.5-1
+  gawk-3.1.5-4
+  gcc-core-3.4.4-3
+  libtool1.5-1.5.23a-2
   make-3.81-1
   pkg-config-0.21-1
   sed-4.1.5-1
@@ -59,6 +59,7 @@ This will create:
   /usr/src/libcdio++0-0.78.2-X.tar.bz2
   /usr/src/libcdio7-0.78.2-X.tar.bz2
   /usr/src/libiso9660_5-0.78.2-X.tar.bz2
+  /usr/src/libiso9660++0-0.78.2-X.tar.bz2
   /usr/src/libudf0-0.78.2-X.tar.bz2
 
 -------------------------------------------
@@ -89,7 +90,6 @@ Files included in the binary packages:
 
 (libcdio++0)
   /usr/bin/cygcdio++-0.dll
-  /usr/bin/cygiso9660++-0.dll
 
 (libcdio7)
   /usr/bin/cygcdio-7.dll
@@ -102,6 +102,9 @@ Files included in the binary packages:
 
 (libiso9660_5)
   /usr/bin/cygiso9660-5.dll
+
+(libiso9660++0)
+  /usr/bin/cygiso9660++-0.dll
 
 (libudf0)
   /usr/bin/cygudf-0.dll
@@ -175,6 +178,10 @@ Files included in the binary packages:
 ------------------
 
 Port Notes:
+
+----- version 0.78.2-2 -----
+Added several CDParanoia compatibility defines.
+Each library is now in a separate package.
 
 ----- version 0.78.2-1 -----
 Version bump.
