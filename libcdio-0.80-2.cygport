@@ -1,0 +1,32 @@
+DESCRIPTION="Cross-platform CD-ROM control library"
+HOMEPAGE="http://www.gnu.org/software/libcdio/"
+SRC_URI="mirror://gnu/libcdio/${P}.tar.gz"
+
+libs="    cdio cdio++ cdio_cdda cdio_paranoia iso9660 iso9660++ udf"
+abis=(- - 7    0      0         0             _5      0         0)
+n=0
+
+PKG_NAMES="${PN} ${PN}-devel"
+PKG_HINTS='setup devel'
+PKG_CONTENTS[$((n++))]='etc/ usr/bin/*.exe usr/share/'
+PKG_CONTENTS[$((n++))]='usr/include/ usr/lib/'
+
+for l in ${libs}
+do
+	PKG_NAMES+=" lib${l}${abis[$((n))]}"
+	PKG_HINTS+=" ${l}"
+	PKG_CONTENTS[$n]="usr/bin/cyg${l}-${abis[$((n))]/_}.dll"
+	let n++
+done
+unset n
+
+DIFF_EXCLUDES="cdio_config.h version.h *.pc test"
+
+src_compile() {
+	cd ${S}
+	rm -f include/cdio/cdio_config.h
+	cygautoreconf
+	cd ${B}
+	cygconf
+	cygmake
+}

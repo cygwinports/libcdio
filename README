@@ -74,7 +74,8 @@ Files included in the binary packages:
   /usr/bin/cdda-player.exe
   /usr/bin/iso-info.exe
   /usr/bin/iso-read.exe
-  /usr/share/doc/Cygwin/libcdio-0.80.README
+  /usr/bin/mmc-tool.exe
+  /usr/share/doc/libcdio-0.80/ABOUT-NLS
   /usr/share/doc/libcdio-0.80/AUTHORS
   /usr/share/doc/libcdio-0.80/COPYING
   /usr/share/doc/libcdio-0.80/ChangeLog
@@ -85,7 +86,12 @@ Files included in the binary packages:
   /usr/share/doc/libcdio-0.80/TODO
   /usr/share/info/libcdio.info.gz
   /usr/share/man/jp/man1/cd-paranoia.1.gz
+  /usr/share/man/man1/cd-drive.1.gz
+  /usr/share/man/man1/cd-info.1.gz
   /usr/share/man/man1/cd-paranoia.1.gz
+  /usr/share/man/man1/cd-read.1.gz
+  /usr/share/man/man1/iso-info.1.gz
+  /usr/share/man/man1/iso-read.1.gz
 
 (libcdio++0)
   /usr/bin/cygcdio++-0.dll
@@ -145,6 +151,7 @@ Files included in the binary packages:
   /usr/include/cdio/udf.h
   /usr/include/cdio/udf_file.h
   /usr/include/cdio/udf_time.h
+  /usr/include/cdio/utf8.h
   /usr/include/cdio/util.h
   /usr/include/cdio/version.h
   /usr/include/cdio/xa.h
@@ -169,14 +176,20 @@ Files included in the binary packages:
   /usr/lib/libudf.a
   /usr/lib/libudf.dll.a
   /usr/lib/libudf.la
+  /usr/lib/pkgconfig/libcdio++.pc
   /usr/lib/pkgconfig/libcdio.pc
   /usr/lib/pkgconfig/libcdio_cdda.pc
   /usr/lib/pkgconfig/libcdio_paranoia.pc
+  /usr/lib/pkgconfig/libiso9660++.pc
   /usr/lib/pkgconfig/libiso9660.pc
+  /usr/lib/pkgconfig/libudf.pc
 
 ------------------
 
 Port Notes:
+
+----- version 0.80-2 -----
+Restored missing .pc files.
 
 ----- version 0.80-1 -----
 Version bump.
