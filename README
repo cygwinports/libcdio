@@ -189,7 +189,7 @@ Files included in the binary packages:
 Port Notes:
 
 ----- version 0.80-2 -----
-Restored missing .pc files.
+Fixed pkg-config files.
 
 ----- version 0.80-1 -----
 Version bump.
