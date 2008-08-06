@@ -1,4 +1,3 @@
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/Makefile.am src/libcdio-0.80/Makefile.am
 --- origsrc/libcdio-0.80/Makefile.am	2008-03-15 11:21:28.000000000 -0500
 +++ src/libcdio-0.80/Makefile.am	2008-04-24 14:37:53.000000000 -0500
 @@ -48,7 +48,7 @@
@@ -17,7 +16,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
 -ACLOCAL_AMFLAGS=-I .
 -
  endif
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/include/cdio/paranoia.h src/libcdio-0.80/include/cdio/paranoia.h
 --- origsrc/libcdio-0.80/include/cdio/paranoia.h	2007-09-28 07:09:38.000000000 -0500
 +++ src/libcdio-0.80/include/cdio/paranoia.h	2008-04-24 14:37:53.015625000 -0500
 @@ -176,6 +176,7 @@
@@ -28,7 +26,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
  #define paranoia_init         cdio_paranoia_init
  #define paranoia_free         cdio_paranoia_free
  #define paranoia_modeset      cdio_paranoia_modeset
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/include/cdio/sector.h src/libcdio-0.80/include/cdio/sector.h
 --- origsrc/libcdio-0.80/include/cdio/sector.h	2006-01-14 03:44:53.000000000 -0600
 +++ src/libcdio-0.80/include/cdio/sector.h	2008-04-24 14:37:53.031250000 -0500
 @@ -270,6 +270,11 @@
@@ -43,7 +40,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
  #endif /* _CDIO_SECTOR_H_ */
  
  
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/lib/cdda_interface/Makefile.am src/libcdio-0.80/lib/cdda_interface/Makefile.am
 --- origsrc/libcdio-0.80/lib/cdda_interface/Makefile.am	2007-10-14 23:53:59.000000000 -0500
 +++ src/libcdio-0.80/lib/cdda_interface/Makefile.am	2008-04-24 14:37:53.046875000 -0500
 @@ -59,7 +59,7 @@
@@ -55,7 +51,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
  
  INCLUDES = $(LIBCDIO_CFLAGS)
  
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/lib/cdio++/Makefile.am src/libcdio-0.80/lib/cdio++/Makefile.am
 --- origsrc/libcdio-0.80/lib/cdio++/Makefile.am	2007-10-14 23:53:59.000000000 -0500
 +++ src/libcdio-0.80/lib/cdio++/Makefile.am	2008-04-24 14:37:53.375000000 -0500
 @@ -51,7 +51,8 @@
@@ -77,7 +72,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
 +libiso9660___la_LIBADD = $(top_builddir)/lib/iso9660/libiso9660.la $(top_builddir)/lib/driver/libcdio.la
  
  INCLUDES = -I$(top_srcdir)/include/
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/lib/driver/Makefile.am src/libcdio-0.80/lib/driver/Makefile.am
 --- origsrc/libcdio-0.80/lib/driver/Makefile.am	2007-10-14 23:53:59.000000000 -0500
 +++ src/libcdio-0.80/lib/driver/Makefile.am	2008-04-24 14:37:53.390625000 -0500
 @@ -98,10 +98,10 @@
@@ -93,7 +87,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
  
  INCLUDES = $(LIBCDIO_CFLAGS)
  
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/lib/driver/device.c src/libcdio-0.80/lib/driver/device.c
 --- origsrc/libcdio-0.80/lib/driver/device.c	2006-04-03 21:06:13.000000000 -0500
 +++ src/libcdio-0.80/lib/driver/device.c	2008-04-24 14:37:53.390625000 -0500
 @@ -68,9 +68,9 @@
@@ -108,7 +101,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
  const driver_id_t cdio_os_driver = DRIVER_WIN32;
  #else 
  const driver_id_t cdio_os_driver = DRIVER_UNKNOWN;
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/lib/iso9660/Makefile.am src/libcdio-0.80/lib/iso9660/Makefile.am
 --- origsrc/libcdio-0.80/lib/iso9660/Makefile.am	2007-10-14 23:53:59.000000000 -0500
 +++ src/libcdio-0.80/lib/iso9660/Makefile.am	2008-04-24 14:37:53.406250000 -0500
 @@ -68,8 +68,8 @@
@@ -122,7 +114,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
  
  INCLUDES = $(LIBCDIO_CFLAGS)
  
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/lib/paranoia/Makefile.am src/libcdio-0.80/lib/paranoia/Makefile.am
 --- origsrc/libcdio-0.80/lib/paranoia/Makefile.am	2007-10-14 23:53:59.000000000 -0500
 +++ src/libcdio-0.80/lib/paranoia/Makefile.am	2008-04-24 14:37:53.437500000 -0500
 @@ -58,7 +58,7 @@
@@ -134,7 +125,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
  
  INCLUDES = $(LIBCDIO_CFLAGS)
  
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/lib/udf/Makefile.am src/libcdio-0.80/lib/udf/Makefile.am
 --- origsrc/libcdio-0.80/lib/udf/Makefile.am	2007-10-14 23:40:43.000000000 -0500
 +++ src/libcdio-0.80/lib/udf/Makefile.am	2008-04-24 14:37:53.453125000 -0500
 @@ -36,6 +36,8 @@
@@ -146,7 +136,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
  libudf_la_LIBADD = @LIBCDIO_LIBS@
  
  INCLUDES = $(LIBCDIO_CFLAGS)
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/libcdio.pc.in src/libcdio-0.80/libcdio.pc.in
 --- origsrc/libcdio-0.80/libcdio.pc.in	2006-08-20 15:09:23.000000000 -0500
 +++ src/libcdio-0.80/libcdio.pc.in	2008-04-24 14:38:39.765625000 -0500
 @@ -7,5 +7,5 @@
@@ -156,7 +145,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
 -Libs: -L${libdir} -lcdio @LIBS@ @LIBICONV@ @DARWIN_PKG_LIB_HACK@
 +Libs: -L${libdir} -lcdio @LIBS@ @LTLIBICONV@ @DARWIN_PKG_LIB_HACK@
  Cflags: -I${includedir}
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/libiso9660++.pc.in src/libcdio-0.80/libiso9660++.pc.in
 --- origsrc/libcdio-0.80/libiso9660++.pc.in	2006-03-06 16:21:42.000000000 -0600
 +++ src/libcdio-0.80/libiso9660++.pc.in	2008-04-24 14:38:49.406250000 -0500
 @@ -8,5 +8,5 @@
@@ -166,7 +154,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
 -Libs: -L${libdir} -liso9660++ -lcdio++ -liso9660 @LIBICONV@ -lcdio
 +Libs: -L${libdir} -liso9660++ -lcdio++ -liso9660 @LTLIBICONV@ -lcdio
  Cflags: -I${includedir}
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/libiso9660.pc.in src/libcdio-0.80/libiso9660.pc.in
 --- origsrc/libcdio-0.80/libiso9660.pc.in	2005-09-21 20:00:03.000000000 -0500
 +++ src/libcdio-0.80/libiso9660.pc.in	2008-04-24 14:38:54.421875000 -0500
 @@ -8,5 +8,5 @@
@@ -176,7 +163,6 @@ diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -
 -Libs: -L${libdir} -liso9660 @LIBICONV@ -lcdio
 +Libs: -L${libdir} -liso9660 @LTLIBICONV@ -lcdio
  Cflags: -I${includedir}
-diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x autom4te.cache -x config.cache -x config.log -x config.status -x config.h -x config.h.in -x ABOUT-NLS -x Makefile.in.in -x Makevars.template -x '*SlackBuild*' -x '*.egg-info' -x '*.class' -x '*.pyc' -x '*.mo' -x '*.gmo' -x '*.orig' -x '*.rej' -x '*.spec' -x '*.temp' -x '*~' -x '*.stackdump' -x COPYING -x INSTALL -x compile -x config-ml.in -x config.guess -x config.sub -x depcomp -x elisp-comp -x install-sh -x libtool.m4 -x ltoptions.m4 -x ltsugar.m4 -x ltversion.m4 -x 'lt~obsolete.m4' -x ltmain.sh -x mdate-sh -x missing -x mkinstalldirs -x py-compile -x symlink-tree -x texinfo.tex -x ylwrap -x config.rpath -x Makefile.in -x makefile.in -x configure -x omf.make -x xmldocs.make -x gnome-doc-utils.make -x gnome-doc-utils.m4 -x intltool.m4 -x intltool-extract -x intltool-extract.in -x intltool-merge -x intltool-merge.in -x intltool-update -x intltool-update.in -x cdio_config.h -x version.h -x '*.pc' -x test origsrc/libcdio-0.80/src/Makefile.am src/libcdio-0.80/src/Makefile.am
 --- origsrc/libcdio-0.80/src/Makefile.am	2008-03-15 11:21:28.000000000 -0500
 +++ src/libcdio-0.80/src/Makefile.am	2008-04-24 14:37:53.468750000 -0500
 @@ -46,48 +46,48 @@
