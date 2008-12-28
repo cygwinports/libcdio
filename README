@@ -14,25 +14,25 @@ applications that use this library also have the ability to read disc
 images as though they were CD's.
 
 Runtime requirements:
-  cygwin-1.5.25-7
-  libcddb2-1.3.0-1
-  libiconv2-1.11-1
+  cygwin-1.5.25-15
+  libcddb2-1.3.0-2
+  libiconv2-1.12-1
   libncurses8-5.5-3
-  libvcdinfo0-0.7.23-1
+  libvcdinfo0-0.7.23-2
 
 Build requirements:
 (besides corresponding -devel packages)
-  autoconf2.5-2.61-1
-  automake1.10-1.10.1-1
-  binutils-20060817-1
-  cygport-0.3.9-1
+  autoconf2.5-2.63-1
+  automake1.10-1.10.1-2
+  binutils-20080624-2
+  cygport-0.4.3-1
   gawk-3.1.6-1
   gcc-core-3.4.4-3
-  libtool-2.2.2-2
+  libtool-2.2.6a-1
   make-3.81-1
-  pkg-config-0.21-1
-  sed-4.1.5-1
-  w32api-3.10-1
+  pkg-config-0.23a-2
+  sed-4.1.5-2
+  w32api-3.12-1
 
 Canonical website:
   http://www.gnu.org/software/libcdio/
@@ -43,30 +43,35 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack libcdio-0.80-X-src.tar.bz2
+  unpack libcdio-0.81-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./libcdio-0.80-X.cygport all
+  cygport ./libcdio-0.81-X.cygport all
 
 This will create:
-  /usr/src/libcdio-0.80-X-src.tar.bz2
-  /usr/src/libcdio-0.80-X.tar.bz2
-  /usr/src/libcdio-devel-0.80-X.tar.bz2
-  /usr/src/libcdio_cdda0-0.80-X.tar.bz2
-  /usr/src/libcdio_paranoia0-0.80-X.tar.bz2
-  /usr/src/libcdio++0-0.80-X.tar.bz2
-  /usr/src/libcdio7-0.80-X.tar.bz2
-  /usr/src/libiso9660_5-0.80-X.tar.bz2
-  /usr/src/libiso9660++0-0.80-X.tar.bz2
-  /usr/src/libudf0-0.80-X.tar.bz2
+  /usr/src/libcdio-0.81-X-src.tar.bz2
+  /usr/src/libcdio-0.81-X.tar.bz2
+  /usr/src/libcdio-devel-0.81-X.tar.bz2
+  /usr/src/libcdio_cdda-devel-0.81-X.tar.bz2
+  /usr/src/libcdio_cdda0-0.81-X.tar.bz2
+  /usr/src/libcdio_paranoia-devel-0.81-X.tar.bz2
+  /usr/src/libcdio_paranoia0-0.81-X.tar.bz2
+  /usr/src/libcdio++-devel-0.81-X.tar.bz2
+  /usr/src/libcdio++0-0.81-X.tar.bz2
+  /usr/src/libcdio10-0.81-X.tar.bz2
+  /usr/src/libiso9660-devel-0.81-X.tar.bz2
+  /usr/src/libiso9660_7-0.81-X.tar.bz2
+  /usr/src/libiso9660++-devel-0.81-X.tar.bz2
+  /usr/src/libiso9660++0-0.81-X.tar.bz2
+  /usr/src/libudf-devel-0.81-X.tar.bz2
+  /usr/src/libudf0-0.81-X.tar.bz2
 
 -------------------------------------------
 
 Files included in the binary packages:
 
 (libcdio)
-  /etc/postinstall/libcdio.sh
   /usr/bin/cd-drive.exe
   /usr/bin/cd-info.exe
   /usr/bin/cd-paranoia.exe
@@ -75,15 +80,15 @@ Files included in the binary packages:
   /usr/bin/iso-info.exe
   /usr/bin/iso-read.exe
   /usr/bin/mmc-tool.exe
-  /usr/share/doc/libcdio-0.80/ABOUT-NLS
-  /usr/share/doc/libcdio-0.80/AUTHORS
-  /usr/share/doc/libcdio-0.80/COPYING
-  /usr/share/doc/libcdio-0.80/ChangeLog
-  /usr/share/doc/libcdio-0.80/INSTALL
-  /usr/share/doc/libcdio-0.80/NEWS
-  /usr/share/doc/libcdio-0.80/README
-  /usr/share/doc/libcdio-0.80/THANKS
-  /usr/share/doc/libcdio-0.80/TODO
+  /usr/share/doc/libcdio-0.81/ABOUT-NLS
+  /usr/share/doc/libcdio-0.81/AUTHORS
+  /usr/share/doc/libcdio-0.81/COPYING
+  /usr/share/doc/libcdio-0.81/ChangeLog
+  /usr/share/doc/libcdio-0.81/INSTALL
+  /usr/share/doc/libcdio-0.81/NEWS
+  /usr/share/doc/libcdio-0.81/README
+  /usr/share/doc/libcdio-0.81/THANKS
+  /usr/share/doc/libcdio-0.81/TODO
   /usr/share/info/libcdio.info.gz
   /usr/share/man/jp/man1/cd-paranoia.1.gz
   /usr/share/man/man1/cd-drive.1.gz
@@ -93,43 +98,14 @@ Files included in the binary packages:
   /usr/share/man/man1/iso-info.1.gz
   /usr/share/man/man1/iso-read.1.gz
 
-(libcdio++0)
-  /usr/bin/cygcdio++-0.dll
-
-(libcdio7)
-  /usr/bin/cygcdio-7.dll
-
-(libcdio_cdda0)
-  /usr/bin/cygcdio_cdda-0.dll
-
-(libcdio_paranoia0)
-  /usr/bin/cygcdio_paranoia-0.dll
-
-(libiso9660_5)
-  /usr/bin/cygiso9660-5.dll
-
-(libiso9660++0)
-  /usr/bin/cygiso9660++-0.dll
-
-(libudf0)
-  /usr/bin/cygudf-0.dll
+(libcdio10)
+  /usr/bin/cygcdio-10.dll
 
 (libcdio-devel)
-  /usr/include/cdio++/cdio.hpp
-  /usr/include/cdio++/cdtext.hpp
-  /usr/include/cdio++/device.hpp
-  /usr/include/cdio++/devices.hpp
-  /usr/include/cdio++/disc.hpp
-  /usr/include/cdio++/enum.hpp
-  /usr/include/cdio++/iso9660.hpp
-  /usr/include/cdio++/mmc.hpp
-  /usr/include/cdio++/read.hpp
-  /usr/include/cdio++/track.hpp
   /usr/include/cdio/audio.h
   /usr/include/cdio/bytesex.h
   /usr/include/cdio/bytesex_asm.h
   /usr/include/cdio/cd_types.h
-  /usr/include/cdio/cdda.h
   /usr/include/cdio/cdio.h
   /usr/include/cdio/cdio_config.h
   /usr/include/cdio/cdtext.h
@@ -137,56 +113,101 @@ Files included in the binary packages:
   /usr/include/cdio/disc.h
   /usr/include/cdio/ds.h
   /usr/include/cdio/dvd.h
-  /usr/include/cdio/ecma_167.h
-  /usr/include/cdio/iso9660.h
   /usr/include/cdio/logging.h
   /usr/include/cdio/mmc.h
-  /usr/include/cdio/paranoia.h
   /usr/include/cdio/posix.h
   /usr/include/cdio/read.h
-  /usr/include/cdio/rock.h
   /usr/include/cdio/sector.h
   /usr/include/cdio/track.h
   /usr/include/cdio/types.h
-  /usr/include/cdio/udf.h
-  /usr/include/cdio/udf_file.h
-  /usr/include/cdio/udf_time.h
   /usr/include/cdio/utf8.h
   /usr/include/cdio/util.h
   /usr/include/cdio/version.h
-  /usr/include/cdio/xa.h
-  /usr/lib/libcdio++.a
-  /usr/lib/libcdio++.dll.a
-  /usr/lib/libcdio++.la
   /usr/lib/libcdio.a
   /usr/lib/libcdio.dll.a
   /usr/lib/libcdio.la
+  /usr/lib/pkgconfig/libcdio.pc
+
+(libcdio++0)
+  /usr/bin/cygcdio++-0.dll
+
+(libcdio++-devel)
+  /usr/include/cdio++/cdio.hpp
+  /usr/include/cdio++/cdtext.hpp
+  /usr/include/cdio++/device.hpp
+  /usr/include/cdio++/devices.hpp
+  /usr/include/cdio++/disc.hpp
+  /usr/include/cdio++/enum.hpp
+  /usr/include/cdio++/mmc.hpp
+  /usr/include/cdio++/read.hpp
+  /usr/include/cdio++/track.hpp
+  /usr/lib/libcdio++.a
+  /usr/lib/libcdio++.dll.a
+  /usr/lib/libcdio++.la
+  /usr/lib/pkgconfig/libcdio++.pc
+
+(libcdio_cdda0)
+  /usr/bin/cygcdio_cdda-0.dll
+
+(libcdio_cdda-devel)
+  /usr/include/cdio/cdda.h
   /usr/lib/libcdio_cdda.a
   /usr/lib/libcdio_cdda.dll.a
   /usr/lib/libcdio_cdda.la
+  /usr/lib/pkgconfig/libcdio_cdda.pc
+
+(libcdio_paranoia0)
+  /usr/bin/cygcdio_paranoia-0.dll
+
+(libcdio_paranoia-devel)
+  /usr/include/cdio/paranoia.h
   /usr/lib/libcdio_paranoia.a
   /usr/lib/libcdio_paranoia.dll.a
   /usr/lib/libcdio_paranoia.la
-  /usr/lib/libiso9660++.a
-  /usr/lib/libiso9660++.dll.a
-  /usr/lib/libiso9660++.la
+  /usr/lib/pkgconfig/libcdio_paranoia.pc
+
+(libiso9660_7)
+  /usr/bin/cygiso9660-7.dll
+
+(libiso9660-devel)
+  /usr/include/cdio/iso9660.h
+  /usr/include/cdio/rock.h
+  /usr/include/cdio/xa.h
   /usr/lib/libiso9660.a
   /usr/lib/libiso9660.dll.a
   /usr/lib/libiso9660.la
+  /usr/lib/pkgconfig/libiso9660.pc
+
+(libiso9660++0)
+  /usr/bin/cygiso9660++-0.dll
+
+(libiso9660++-devel)
+  /usr/include/cdio++/iso9660.hpp
+  /usr/lib/libiso9660++.a
+  /usr/lib/libiso9660++.dll.a
+  /usr/lib/libiso9660++.la
+  /usr/lib/pkgconfig/libiso9660++.pc
+
+(libudf0)
+  /usr/bin/cygudf-0.dll
+
+(libudf-devel)
+  /usr/include/cdio/ecma_167.h
+  /usr/include/cdio/udf.h
+  /usr/include/cdio/udf_file.h
+  /usr/include/cdio/udf_time.h
   /usr/lib/libudf.a
   /usr/lib/libudf.dll.a
   /usr/lib/libudf.la
-  /usr/lib/pkgconfig/libcdio++.pc
-  /usr/lib/pkgconfig/libcdio.pc
-  /usr/lib/pkgconfig/libcdio_cdda.pc
-  /usr/lib/pkgconfig/libcdio_paranoia.pc
-  /usr/lib/pkgconfig/libiso9660++.pc
-  /usr/lib/pkgconfig/libiso9660.pc
   /usr/lib/pkgconfig/libudf.pc
 
 ------------------
 
 Port Notes:
+
+----- version 0.81-1 -----
+Version bump.
+Created separate -devel packages for each library.
 
 ----- version 0.80-2 -----
 Fixed pkg-config files.

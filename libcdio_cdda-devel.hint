@@ -1,6 +1,7 @@
 category: Audio
-requires: cygwin libcdio7 libcdio_cdda0 libcdio_paranoia0 libiso9660_5 libcddb2 libncurses8
-sdesc: "CD-ROM control library (utilities)"
+requires: cygwin libcdio_cdda0 libcdio-devel
+external-source: libcdio
+sdesc: "CD-ROM control library (CDDB development)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM
 reading and control. Applications wishing to be oblivious of the OS-
 and device-dependent properties of a CD-ROM can use this library.

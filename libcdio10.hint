@@ -1,7 +1,7 @@
-category: Libs
-requires: cygwin libcdio7
+category: Audio
+requires: cygwin
 external-source: libcdio
-sdesc: "UDF library (runtime)"
+sdesc: "CD-ROM control library (runtime)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM
 reading and control. Applications wishing to be oblivious of the OS-
 and device-dependent properties of a CD-ROM can use this library.

@@ -1,7 +1,6 @@
-category: Audio Libs
-requires: cygwin libcdio7 libcdio_cdda0
-external-source: libcdio
-sdesc: "CD-ROM control library (CD Paranoia runtime)"
+category: Audio
+requires: cygwin libcdio10 libcdio_cdda0 libcdio_paranoia0 libiso9660_7 libcddb2 libncurses8 libvcdinfo0
+sdesc: "CD-ROM control library (utilities)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM
 reading and control. Applications wishing to be oblivious of the OS-
 and device-dependent properties of a CD-ROM can use this library.

@@ -1,0 +1,41 @@
+--- origsrc/libcdio-0.81/libcdio.pc.in	2006-08-20 15:09:23.000000000 -0500
++++ src/libcdio-0.81/libcdio.pc.in	2008-12-28 14:14:05.690625000 -0600
+@@ -7,5 +7,5 @@
+ Description: Portable CD-ROM I/O library
+ Version: @PACKAGE_VERSION@
+ #Requires: glib-2.0 
+-Libs: -L${libdir} -lcdio @LIBS@ @LIBICONV@ @DARWIN_PKG_LIB_HACK@
++Libs: -L${libdir} -lcdio @LIBS@ @LTLIBICONV@ @DARWIN_PKG_LIB_HACK@
+ Cflags: -I${includedir}
+--- origsrc/libcdio-0.81/libiso9660++.pc.in	2006-03-06 16:21:42.000000000 -0600
++++ src/libcdio-0.81/libiso9660++.pc.in	2008-12-28 14:14:05.721875000 -0600
+@@ -2,11 +2,11 @@
+ exec_prefix=@exec_prefix@
+ libdir=@libdir@
+ includedir=@includedir@
+-libiconv=@LIBICONV@
++libiconv=@LTLIBICONV@
+ 
+ Name: libiso9660++
+ Description: C++ OO ISO-9660 library of libcdio
+ Version: @PACKAGE_VERSION@
+ Requires: libcdio 
+-Libs: -L${libdir} -liso9660++ -lcdio++ -liso9660 @LIBICONV@ -lcdio
++Libs: -L${libdir} -liso9660++ -lcdio++ -liso9660 @LTLIBICONV@ -lcdio
+ Cflags: -I${includedir}
+--- origsrc/libcdio-0.81/libiso9660.pc.in	2005-09-21 20:00:03.000000000 -0500
++++ src/libcdio-0.81/libiso9660.pc.in	2008-12-28 14:14:05.737500000 -0600
+@@ -2,11 +2,11 @@
+ exec_prefix=@exec_prefix@
+ libdir=@libdir@
+ includedir=@includedir@
+-libiconv=@LIBICONV@
++libiconv=@LTLIBICONV@
+ 
+ Name: libiso9660
+ Description: ISO-9660 library of libcdio
+ Version: @PACKAGE_VERSION@
+ Requires: libcdio 
+-Libs: -L${libdir} -liso9660 @LIBICONV@ -lcdio
++Libs: -L${libdir} -liso9660 @LTLIBICONV@ -lcdio
+ Cflags: -I${includedir}

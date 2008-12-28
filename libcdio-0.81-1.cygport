@@ -1,0 +1,50 @@
+DESCRIPTION="Cross-platform CD-ROM control library"
+HOMEPAGE="http://www.gnu.org/software/libcdio/"
+SRC_URI="mirror://gnu/libcdio/${P}.tar.gz"
+PATCH_URI="
+	0.81-no-undefined.patch
+	0.81-pkgconfig-install.patch
+	0.81-pkgconfig-libiconv.patch
+	0.81-help2man.patch
+	0.80-driver-device.patch
+	0.80-paranoia-compat.patch
+"
+
+PKG_NAMES="${PN} libcdio10 libcdio-devel libcdio++0 libcdio++-devel
+           libcdio_cdda0 libcdio_cdda-devel libcdio_paranoia0 libcdio_paranoia-devel
+           libiso9660_7 libiso9660-devel libiso9660++0 libiso9660++-devel
+           libudf0 libudf-devel"
+libcdio_CONTENTS="usr/bin/*.exe usr/share/"
+libcdio10_CONTENTS="usr/bin/cygcdio-10.dll"
+libcdio_devel_CONTENTS="--exclude=cdda.h --exclude=paranoia.h
+                        --exclude=iso9660.h --exclude=rock.h --exclude=xa.h
+                        --exclude=ecma_167.h --exclude=udf*.h
+                        usr/include/cdio/ usr/lib/libcdio.* usr/lib/pkgconfig/libcdio.pc"
+libcdio__0_CONTENTS="usr/bin/cygcdio++-0.dll"
+libcdio___devel_CONTENTS="--exclude=iso9660.hpp usr/include/cdio++/
+                          usr/lib/libcdio++.* usr/lib/pkgconfig/libcdio++.pc"
+libcdio_cdda0_CONTENTS="usr/bin/cygcdio_cdda-0.dll"
+libcdio_cdda_devel_CONTENTS="usr/include/cdio/cdda.h usr/lib/libcdio_cdda.*
+                             usr/lib/pkgconfig/libcdio_cdda.pc"
+libcdio_paranoia0_CONTENTS="usr/bin/cygcdio_paranoia-0.dll"
+libcdio_paranoia_devel_CONTENTS="usr/include/cdio/paranoia.h usr/lib/libcdio_paranoia.*
+                                 usr/lib/pkgconfig/libcdio_paranoia.pc"
+libiso9660_7_CONTENTS="usr/bin/cygiso9660-7.dll"
+libiso9660_devel_CONTENTS="usr/include/cdio/iso9660.h usr/include/cdio/rock.h
+                           usr/include/cdio/xa.h usr/lib/libiso9660.*
+                           usr/lib/pkgconfig/libiso9660.pc"
+libiso9660__0_CONTENTS="usr/bin/cygiso9660++-0.dll"
+libiso9660___devel_CONTENTS="usr/include/cdio++/iso9660.hpp usr/lib/libiso9660++.*
+                             usr/lib/pkgconfig/libiso9660++.pc"
+libudf0_CONTENTS="usr/bin/cygudf-0.dll"
+libudf_devel_CONTENTS="usr/include/cdio/ecma_167.h usr/include/cdio/udf*
+                       usr/lib/libudf.* usr/lib/pkgconfig/libudf.pc"
+
+DISTCLEANFILES="include/cdio/cdio_config.h include/cdio/version.h"
+DIFF_EXCLUDES="test"
+
+CYGCONF_ARGS="
+	--disable-example-progs
+	--enable-vcd-info
+	--without-versioned-libs
+"
