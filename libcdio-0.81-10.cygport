@@ -40,7 +40,7 @@ libudf0_CONTENTS="usr/bin/cygudf-0.dll"
 libudf_devel_CONTENTS="usr/include/cdio/ecma_167.h usr/include/cdio/udf*
                        usr/lib/libudf.* usr/lib/pkgconfig/libudf.pc"
 
-DISTCLEANFILES="include/cdio/cdio_config.h include/cdio/version.h"
+DISTCLEANFILES="include/cdio/cdio_config.h include/cdio/version.h m4/*.m4"
 DIFF_EXCLUDES="test"
 
 CYGCONF_ARGS="

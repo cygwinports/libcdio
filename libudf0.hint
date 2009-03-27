@@ -1,5 +1,5 @@
 category: Audio
-requires: cygwin libcdio10
+requires: cygwin libcdio10 libgcc1
 external-source: libcdio
 sdesc: "UDF library (runtime)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM

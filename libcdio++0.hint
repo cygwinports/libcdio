@@ -1,5 +1,5 @@
 category: Audio
-requires: cygwin libcdio10
+requires: cygwin libcdio10 libgcc1 libstdc++6
 external-source: libcdio
 sdesc: "CD-ROM control library (CDIO C++ runtime)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM

@@ -14,25 +14,29 @@ applications that use this library also have the ability to read disc
 images as though they were CD's.
 
 Runtime requirements:
-  cygwin-1.5.25-15
-  libcddb2-1.3.0-2
-  libiconv2-1.12-1
-  libncurses8-5.5-3
-  libvcdinfo0-0.7.23-2
+  cygwin-1.7.0-44
+  libcddb2-1.3.1-1
+  libgcc1-4.3.2-2
+  libiconv2-1.12-10
+  libncurses9-5.7-14
+  libstdc++6-4.3.2-2
+  libvcdinfo0-0.7.23-10
 
 Build requirements:
 (besides corresponding -devel packages)
-  autoconf2.5-2.63-1
-  automake1.10-1.10.1-2
+  autoconf2.5-2.63-10
+  automake1.10-1.10.1-10
   binutils-20080624-2
-  cygport-0.4.3-1
-  gawk-3.1.6-1
-  gcc-core-3.4.4-3
-  libtool-2.2.6a-1
-  make-3.81-1
+  cygport-0.9.6-1
+  gawk-3.1.6-2
+  gcc4-core-4.3.2-2
+  gcc4-g++-4.3.2-2
+  help2man-1.36.4-10
+  libtool-2.2.6a-2
+  make-3.81-2
   pkg-config-0.23a-2
   sed-4.1.5-2
-  w32api-3.12-1
+  w32api-3.13-1
 
 Canonical website:
   http://www.gnu.org/software/libcdio/
@@ -80,15 +84,13 @@ Files included in the binary packages:
   /usr/bin/iso-info.exe
   /usr/bin/iso-read.exe
   /usr/bin/mmc-tool.exe
-  /usr/share/doc/libcdio-0.81/ABOUT-NLS
-  /usr/share/doc/libcdio-0.81/AUTHORS
-  /usr/share/doc/libcdio-0.81/COPYING
-  /usr/share/doc/libcdio-0.81/ChangeLog
-  /usr/share/doc/libcdio-0.81/INSTALL
-  /usr/share/doc/libcdio-0.81/NEWS
-  /usr/share/doc/libcdio-0.81/README
-  /usr/share/doc/libcdio-0.81/THANKS
-  /usr/share/doc/libcdio-0.81/TODO
+  /usr/share/doc/libcdio/AUTHORS
+  /usr/share/doc/libcdio/COPYING
+  /usr/share/doc/libcdio/ChangeLog
+  /usr/share/doc/libcdio/NEWS
+  /usr/share/doc/libcdio/README
+  /usr/share/doc/libcdio/THANKS
+  /usr/share/doc/libcdio/TODO
   /usr/share/info/libcdio.info.gz
   /usr/share/man/jp/man1/cd-paranoia.1.gz
   /usr/share/man/man1/cd-drive.1.gz
@@ -205,31 +207,8 @@ Files included in the binary packages:
 
 Port Notes:
 
------ version 0.81-1 -----
-Version bump.
-Created separate -devel packages for each library.
-
------ version 0.80-2 -----
-Fixed pkg-config files.
-
------ version 0.80-1 -----
-Version bump.
-
------ version 0.78.2-2 -----
-Added several CDParanoia compatibility defines.
-Each library is now in a separate package.
-
------ version 0.78.2-1 -----
-Version bump.
-
------ version 0.78.1-1 -----
-Version bump.
-
------ version 0.77-1 -----
-Version and ABI bump.
-
------ version 0.76-1 -----
-Initial release for Cygwin.
+----- version 0.81-10 -----
+Initial release for Cygwin 1.7.
 
 
 Cygwin port maintained by:
