@@ -1,5 +1,5 @@
 category: Audio
-requires: cygwin libcdio10 libiso9660_7 libgcc1 libstdc++6
+requires: libcdio10 libiso9660_7 libgcc1 libstdc++6
 external-source: libcdio
 sdesc: "ISO-9660 filesystem library (C++ runtime)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM

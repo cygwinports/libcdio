@@ -1,5 +1,5 @@
 category: Audio
-requires: cygwin libcdio_paranoia0 libcdio-devel libcdio_cdda-devel
+requires: libcdio_paranoia0 libcdio-devel libcdio_cdda-devel
 external-source: libcdio
 sdesc: "CD-ROM control library (CD-Paranoia development)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM
