@@ -1,21 +1,13 @@
 DESCRIPTION="Cross-platform CD-ROM control library"
 HOMEPAGE="http://www.gnu.org/software/libcdio/"
 SRC_URI="mirror://gnu/libcdio/${P}.tar.gz"
-PATCH_URI="
-	0.81-no-undefined.patch
-	0.81-pkgconfig-install.patch
-	0.81-pkgconfig-libiconv.patch
-	0.81-help2man.patch
-	0.80-driver-device.patch
-	0.80-paranoia-compat.patch
-"
 
-PKG_NAMES="${PN} libcdio10 libcdio-devel libcdio++0 libcdio++-devel
+PKG_NAMES="${PN} libcdio12 libcdio-devel libcdio++0 libcdio++-devel
            libcdio_cdda0 libcdio_cdda-devel libcdio_paranoia0 libcdio_paranoia-devel
            libiso9660_7 libiso9660-devel libiso9660++0 libiso9660++-devel
            libudf0 libudf-devel"
 libcdio_CONTENTS="usr/bin/*.exe usr/share/"
-libcdio10_CONTENTS="usr/bin/cygcdio-10.dll"
+libcdio12_CONTENTS="usr/bin/cygcdio-12.dll"
 libcdio_devel_CONTENTS="--exclude=cdda.h --exclude=paranoia.h
                         --exclude=iso9660.h --exclude=rock.h --exclude=xa.h
                         --exclude=ecma_167.h --exclude=udf*.h
@@ -41,7 +33,7 @@ libudf_devel_CONTENTS="usr/include/cdio/ecma_167.h usr/include/cdio/udf*
                        usr/lib/libudf.* usr/lib/pkgconfig/libudf.pc"
 
 DISTCLEANFILES="include/cdio/cdio_config.h include/cdio/version.h m4/*.m4"
-DIFF_EXCLUDES="test"
+DIFF_EXCLUDES="test *.1"
 
 CYGCONF_ARGS="
 	--disable-example-progs
