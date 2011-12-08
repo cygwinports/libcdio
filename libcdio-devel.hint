@@ -1,5 +1,5 @@
 category: Audio
-requires: libcdio12 libiconv w32api
+requires: libcdio13 libcdio_cdda1 libcdio_paranoia1 libiso9660_8 libudf0 libiconv w32api
 external-source: libcdio
 sdesc: "CD-ROM control library (C development)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM

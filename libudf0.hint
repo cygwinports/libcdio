@@ -1,5 +1,5 @@
 category: Audio
-requires: libcdio12 libgcc1
+requires: libcdio13
 external-source: libcdio
 sdesc: "UDF library (runtime)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM

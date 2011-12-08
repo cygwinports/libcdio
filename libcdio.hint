@@ -1,5 +1,5 @@
 category: Audio
-requires: libcdio12 libcdio_cdda0 libcdio_paranoia0 libiso9660_7 libcddb2 libgcc1 libncurses10 libvcdinfo0
+requires: libcdio13 libcdio_cdda1 libcdio_paranoia1 libiso9660_8 libcddb2 libncurses10 libvcdinfo0
 sdesc: "CD-ROM control library (utilities)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM
 reading and control. Applications wishing to be oblivious of the OS-

@@ -1,7 +1,7 @@
 category: Audio
-requires: libcdio++0 libcdio-devel libstdc++6-devel
+requires: libcdio++0 libiso9660++0 libcdio-devel
 external-source: libcdio
-sdesc: "CD-ROM control library (CDIO C++ development)"
+sdesc: "CD-ROM control library (C++ development)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM
 reading and control. Applications wishing to be oblivious of the OS-
 and device-dependent properties of a CD-ROM can use this library.

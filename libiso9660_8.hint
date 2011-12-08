@@ -1,7 +1,7 @@
 category: Audio
-requires: libcdio_cdda0 libcdio-devel
+requires: libcdio13 libiconv2
 external-source: libcdio
-sdesc: "CD-ROM control library (CDDB development)"
+sdesc: "ISO9660 filesystem library (C runtime)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM
 reading and control. Applications wishing to be oblivious of the OS-
 and device-dependent properties of a CD-ROM can use this library.

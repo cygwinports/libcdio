@@ -1,0 +1,27 @@
+DESCRIPTION="Cross-platform CD-ROM control library"
+HOMEPAGE="http://www.gnu.org/software/libcdio/"
+SRC_URI="mirror://gnu/libcdio/${P}.tar.gz"
+PATCH_URI="0.83-vpath.patch"
+
+PKG_NAMES="${PN} libcdio13 libcdio++0 libcdio_cdda1 libcdio_paranoia1
+           libiso9660_8 libiso9660++0 libudf0 libcdio-devel libcdio++-devel"
+libcdio_CONTENTS="usr/bin/*.exe usr/share/"
+libcdio13_CONTENTS="usr/bin/cygcdio-13.dll"
+libcdio__0_CONTENTS="usr/bin/cygcdio++-0.dll"
+libcdio_cdda1_CONTENTS="usr/bin/cygcdio_cdda-1.dll"
+libcdio_paranoia1_CONTENTS="usr/bin/cygcdio_paranoia-1.dll"
+libiso9660_8_CONTENTS="usr/bin/cygiso9660-8.dll"
+libiso9660__0_CONTENTS="usr/bin/cygiso9660++-0.dll"
+libudf0_CONTENTS="usr/bin/cygudf-0.dll"
+libcdio_devel_CONTENTS="--exclude=*++* usr/include/cdio/ usr/lib/"
+libcdio___devel_CONTENTS="usr/include/cdio++/ usr/lib/lib*++.* usr/lib/pkgconfig/*++.pc"
+
+DISTCLEANFILES="include/cdio/cdio_config.h include/cdio/version.h m4/*.m4"
+DIFF_EXCLUDES="test *.1"
+
+CYGCONF_ARGS="
+	--disable-example-progs
+	--enable-vcd-info
+	--without-versioned-libs
+"
+CPPFLAGS="-I/usr/include/ncurses"

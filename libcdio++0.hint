@@ -1,5 +1,5 @@
 category: Audio
-requires: libcdio12 libgcc1 libstdc++6
+requires: libcdio13 libgcc1 libstdc++6
 external-source: libcdio
 sdesc: "CD-ROM control library (CDIO C++ runtime)"
 ldesc: "The libcdio package contains a library which encapsulates CD-ROM
