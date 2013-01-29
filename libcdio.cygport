@@ -1,0 +1,45 @@
+NAME="libcdio"
+VERSION=0.90
+RELEASE=1
+CATEGORY="Audio"
+SUMMARY="CD-ROM control library"
+DESCRIPTION="The libcdio package contains a library which encapsulates CD-ROM
+reading and control. Applications wishing to be oblivious of the OS- and
+device-dependent properties of a CD-ROM can use this library. Also included is
+a library for working with ISO-9660 filesystems. Some support for disk image
+types like CDRWin's BIN/CUE format, cdrdao's TOC format, and Nero's NRG format
+are available. Therefore, applications that use this library also have the
+ability to read disc images as though they were CD's."
+HOMEPAGE="http://www.gnu.org/software/libcdio/"
+SRC_URI="mirror://gnu/libcdio/${P}.tar.gz"
+
+PKG_NAMES="${PN} libcdio14 libcdio++0 libiso9660_8 libiso9660++0 libudf0
+           libcdio-devel libcdio++-devel"
+libcdio_SUMMARY="${SUMMARY% library} utilities"
+libcdio_CONTENTS="usr/bin/*.exe usr/share/"
+libcdio14_SUMMARY="${SUMMARY} (runtime)"
+libcdio14_CONTENTS="usr/bin/cygcdio-14.dll"
+libcdio__0_SUMMARY="${SUMMARY} (CDIO C++ runtime)"
+libcdio__0_CONTENTS="usr/bin/cygcdio++-0.dll"
+libiso9660_8_SUMMARY="ISO-9660 filesystem library (C runtime)"
+libiso9660_8_CONTENTS="usr/bin/cygiso9660-8.dll"
+libiso9660__0_SUMMARY="ISO-9660 filesystem library (C++ runtime)"
+libiso9660__0_CONTENTS="usr/bin/cygiso9660++-0.dll"
+libudf0_SUMMARY="UDF library (runtime)"
+libudf0_CONTENTS="usr/bin/cygudf-0.dll"
+libcdio_devel_SUMMARY="${SUMMARY} (C development)"
+libcdio_devel_CONTENTS="--exclude=*++* usr/include/cdio/ usr/lib/"
+libcdio___devel_SUMMARY="${SUMMARY} (C++ development)"
+libcdio___devel_CONTENTS="usr/include/cdio++/ usr/lib/lib*++.* usr/lib/pkgconfig/*++.pc"
+
+DISTCLEANFILES="include/cdio/cdio_config.h include/cdio/version.h m4/*.m4"
+DIFF_EXCLUDES="test *.1"
+
+CYGCONF_ARGS="
+	--disable-example-progs
+	--enable-vcd-info
+	--without-versioned-libs
+"
+CPPFLAGS="-I/usr/include/ncurses"
+
+KEEP_LA_FILES="none"
