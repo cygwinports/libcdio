@@ -1,5 +1,5 @@
 NAME="libcdio"
-VERSION=0.90
+VERSION=0.93
 RELEASE=1
 CATEGORY="Audio"
 SUMMARY="CD-ROM control library"
@@ -13,16 +13,16 @@ ability to read disc images as though they were CD's."
 HOMEPAGE="http://www.gnu.org/software/libcdio/"
 SRC_URI="mirror://gnu/libcdio/${P}.tar.gz"
 
-PKG_NAMES="${PN} libcdio14 libcdio++0 libiso9660_8 libiso9660++0 libudf0
+PKG_NAMES="${PN} libcdio16 libcdio++0 libiso9660_10 libiso9660++0 libudf0
            libcdio-devel libcdio++-devel"
 libcdio_SUMMARY="${SUMMARY% library} utilities"
 libcdio_CONTENTS="usr/bin/*.exe usr/share/"
-libcdio14_SUMMARY="${SUMMARY} (runtime)"
-libcdio14_CONTENTS="usr/bin/cygcdio-14.dll"
+libcdio16_SUMMARY="${SUMMARY} (runtime)"
+libcdio16_CONTENTS="usr/bin/cygcdio-16.dll"
 libcdio__0_SUMMARY="${SUMMARY} (CDIO C++ runtime)"
 libcdio__0_CONTENTS="usr/bin/cygcdio++-0.dll"
-libiso9660_8_SUMMARY="ISO-9660 filesystem library (C runtime)"
-libiso9660_8_CONTENTS="usr/bin/cygiso9660-8.dll"
+libiso9660_10_SUMMARY="ISO-9660 filesystem library (C runtime)"
+libiso9660_10_CONTENTS="usr/bin/cygiso9660-10.dll"
 libiso9660__0_SUMMARY="ISO-9660 filesystem library (C++ runtime)"
 libiso9660__0_CONTENTS="usr/bin/cygiso9660++-0.dll"
 libudf0_SUMMARY="UDF library (runtime)"
