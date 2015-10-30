@@ -1,0 +1,314 @@
+--- origsrc/libcdio-0.93/configure.ac	2014-09-29 09:54:51.000000000 -0500
++++ src/libcdio-0.93/configure.ac	2015-10-29 23:14:27.823432600 -0500
+@@ -426,7 +426,7 @@ int has_timeout=sizeof(test.timeout);],
+                   [Define 1 if you are compiling using cygwin])
+      	AC_DEFINE([HAVE_WIN32_CDROM], [1],
+                   [Define 1 if you have MinGW CD-ROM support])
+- 	LIBS="$LIBS -lwinmm"
++ 	LIBS="$LIBS -lwinmm -lntdll"
+  	LT_NO_UNDEFINED="-no-undefined"
+   	cd_drivers="${cd_drivers}, MinGW"
+      	AC_DEFINE([NEED_TIMEZONEVAR], [1],
+--- origsrc/libcdio-0.93/lib/driver/MSWindows/cygpath.c	1969-12-31 18:00:00.000000000 -0600
++++ src/libcdio-0.93/lib/driver/MSWindows/cygpath.c	2015-10-29 23:13:56.436947000 -0500
+@@ -0,0 +1,253 @@
++#include "config.h"
++
++#ifdef __CYGWIN__
++
++#include <alloca.h>
++#include <stdlib.h>
++#include <stdio.h>
++#include <sys/cygwin.h>
++#include <wchar.h>
++#include <windows.h>
++#include <ntdef.h>
++#include <ntstatus.h>
++
++#define DIRECTORY_QUERY 1
++#define SYMBOLIC_LINK_QUERY 1
++
++  NTSTATUS NTAPI NtClose (HANDLE);
++  NTSTATUS NTAPI NtOpenDirectoryObject (PHANDLE, ACCESS_MASK,
++					POBJECT_ATTRIBUTES);
++  NTSTATUS NTAPI NtOpenSymbolicLinkObject (PHANDLE, ACCESS_MASK,
++					   POBJECT_ATTRIBUTES);
++  NTSTATUS NTAPI NtQueryDirectoryObject (HANDLE, PVOID, ULONG, BOOLEAN,
++					 BOOLEAN, PULONG, PULONG);
++  NTSTATUS NTAPI NtQuerySymbolicLinkObject (HANDLE, PUNICODE_STRING, PULONG);
++  VOID NTAPI RtlCopyUnicodeString (PUNICODE_STRING, PUNICODE_STRING);
++  BOOLEAN NTAPI RtlEqualUnicodeString (PUNICODE_STRING, PUNICODE_STRING,
++				       BOOLEAN);
++  VOID NTAPI RtlInitAnsiString (PANSI_STRING, PCSTR);
++  VOID NTAPI RtlInitUnicodeString (PUNICODE_STRING, PCWSTR);
++  ULONG NTAPI RtlUnicodeStringToAnsiSize (PUNICODE_STRING);
++  NTSTATUS NTAPI RtlUnicodeStringToAnsiString (PANSI_STRING, PUNICODE_STRING,
++					       BOOLEAN);
++  NTSTATUS NTAPI RtlUnicodeStringToOemString (PANSI_STRING, PUNICODE_STRING,
++					      BOOLEAN);
++  NTSTATUS NTAPI RtlAnsiStringToUnicodeString (PUNICODE_STRING, PANSI_STRING,
++					       BOOLEAN);
++  inline
++  VOID NTAPI RtlInitCountedUnicodeString (PUNICODE_STRING dest, PCWSTR buf,
++					  USHORT len)
++  {
++    dest->Length = dest->MaximumLength = len;
++    dest->Buffer = (PWSTR) buf;
++  }
++
++  inline
++  BOOLEAN NTAPI RtlEqualUnicodePathPrefix (PUNICODE_STRING path,
++					   PUNICODE_STRING prefix,
++					   BOOLEAN caseinsensitive)
++  {
++    UNICODE_STRING p;
++
++    RtlInitCountedUnicodeString (&p, path->Buffer,
++				 prefix->Length < path->Length
++				 ? prefix->Length : path->Length);
++    return RtlEqualUnicodeString (&p, prefix, caseinsensitive);
++  }
++
++typedef struct _DIRECTORY_BASIC_INFORMATION
++{
++  UNICODE_STRING ObjectName;
++  UNICODE_STRING ObjectTypeName;
++} DIRECTORY_BASIC_INFORMATION, *PDIRECTORY_BASIC_INFORMATION;
++
++static inline BOOLEAN
++RtlAllocateUnicodeString (PUNICODE_STRING uni, ULONG size)
++{
++  uni->Length = 0;
++  uni->MaximumLength = size / sizeof (WCHAR);
++  uni->Buffer = (WCHAR *) malloc (size);
++  return uni->Buffer != NULL;
++}
++
++static size_t
++my_wcstombs (char *dest, const wchar_t *src, size_t n)
++{
++#if 0
++  if (codepage)
++    return WideCharToMultiByte (codepage, 0, src, -1, dest, n, NULL, NULL);
++  else
++#endif
++    return wcstombs (dest, src, n);
++}
++
++#define GLOBALROOT_PREFIX "\\\\.\\GLOBALROOT"
++
++#define	HARDDISK_PREFIX		L"\\Device\\Harddisk"
++#define	GLOBALROOT_PREFIX	"\\\\.\\GLOBALROOT"
++
++static char *
++get_device_name (char *path)
++{
++  UNICODE_STRING ntdev, tgtdev, ntdevdir;
++  ANSI_STRING ans;
++  OBJECT_ATTRIBUTES ntobj;
++  NTSTATUS status;
++  HANDLE lnk, dir;
++  BOOLEAN got_one = FALSE;
++  char *ret = strdup (path);
++  PDIRECTORY_BASIC_INFORMATION odi = (PDIRECTORY_BASIC_INFORMATION)
++				     alloca (4096);
++  BOOLEAN restart;
++  ULONG cont;
++  int i;
++
++  if (!strncasecmp (path, GLOBALROOT_PREFIX "\\", sizeof (GLOBALROOT_PREFIX)))
++    path += sizeof (GLOBALROOT_PREFIX) - 1;
++  if (strncasecmp (path, "\\Device\\", 8))
++    return ret;
++
++  if (!RtlAllocateUnicodeString (&ntdev, 65534))
++    return ret;
++  if (!RtlAllocateUnicodeString (&tgtdev, 65534))
++    return ret;
++  RtlInitAnsiString (&ans, path);
++  RtlAnsiStringToUnicodeString (&ntdev, &ans, FALSE);
++
++  /* First check if the given device name is a symbolic link itself.  If so,
++     query it and use the new name as actual device name to search for in the
++     DOS device name directory.  If not, just use the incoming device name. */
++  InitializeObjectAttributes (&ntobj, &ntdev, OBJ_CASE_INSENSITIVE, NULL, NULL);
++  status = NtOpenSymbolicLinkObject (&lnk, SYMBOLIC_LINK_QUERY, &ntobj);
++  if (NT_SUCCESS (status))
++    {
++      status = NtQuerySymbolicLinkObject (lnk, &tgtdev, NULL);
++      NtClose (lnk);
++      if (!NT_SUCCESS (status))
++	goto out;
++      RtlCopyUnicodeString (&ntdev, &tgtdev);
++    }
++  else if (status != STATUS_OBJECT_TYPE_MISMATCH
++	   && status != STATUS_OBJECT_PATH_SYNTAX_BAD)
++    goto out;
++
++  for (i = 0; i < 2; ++i)
++    {
++      /* There are two DOS device directories, the local and the global dir.
++	 Try both, local first. */
++      RtlInitUnicodeString (&ntdevdir, i ? L"\\GLOBAL??" : L"\\??");
++
++      /* Open the directory... */
++      InitializeObjectAttributes (&ntobj, &ntdevdir, OBJ_CASE_INSENSITIVE,
++				  NULL, NULL);
++      status = NtOpenDirectoryObject (&dir, DIRECTORY_QUERY, &ntobj);
++      if (!NT_SUCCESS (status))
++	break;
++
++      /* ...and scan it. */
++      for (restart = TRUE, cont = 0;
++	   NT_SUCCESS (NtQueryDirectoryObject (dir, odi, 4096, TRUE,
++					       restart, &cont, NULL));
++	   restart = FALSE)
++	{
++	  /* For each entry check if it's a symbolic link. */
++	  InitializeObjectAttributes (&ntobj, &odi->ObjectName,
++				      OBJ_CASE_INSENSITIVE, dir, NULL);
++	  status = NtOpenSymbolicLinkObject (&lnk, SYMBOLIC_LINK_QUERY, &ntobj);
++	  if (!NT_SUCCESS (status))
++	    continue;
++	  tgtdev.Length = 0;
++	  tgtdev.MaximumLength = 512;
++	  /* If so, query it and compare the target of the symlink with the
++	     incoming device name. */
++	  status = NtQuerySymbolicLinkObject (lnk, &tgtdev, NULL);
++	  NtClose (lnk);
++	  if (!NT_SUCCESS (status))
++	    continue;
++	  if (tgtdev.Length /* There's actually a symlink pointing to an
++			       empty string: \??\GLOBALROOT -> "" */
++	      && RtlEqualUnicodePathPrefix (&ntdev, &tgtdev, TRUE))
++	    {
++	      /* If the comparison succeeds, the name of the directory entry is
++		 a valid DOS device name, if prepended with "\\.\".  Return that
++		 valid DOS path. */
++	      wchar_t *trailing = NULL;
++	      if (ntdev.Length > tgtdev.Length)
++		trailing = ntdev.Buffer + tgtdev.Length / sizeof (WCHAR);
++	      ULONG len = RtlUnicodeStringToAnsiSize (&odi->ObjectName);
++	      if (trailing)
++		len += my_wcstombs (NULL, trailing, 0);
++	      free (ret);
++	      ret = (char *) malloc (len + 4);
++	      strcpy (ret, "\\\\.\\");
++	      ans.Length = 0;
++	      ans.MaximumLength = len;
++	      ans.Buffer = ret + 4;
++	      RtlUnicodeStringToAnsiString (&ans, &odi->ObjectName, FALSE);
++	      if (trailing)
++		my_wcstombs (ans.Buffer + ans.Length, trailing,
++			     ans.MaximumLength - ans.Length);
++	      ans.Buffer[ans.MaximumLength - 1] = '\0';
++	      got_one = TRUE;
++	      /* Special case for local disks:  It's most feasible if the
++		 DOS device name reflects the DOS drive, so we check for this
++		 explicitly and only return prematurely if so. */
++	      if (ntdev.Length < wcslen (HARDDISK_PREFIX)
++		  || wcsncasecmp (ntdev.Buffer, HARDDISK_PREFIX, 8) != 0
++		  || (odi->ObjectName.Length == 2 * sizeof (WCHAR)
++		      && odi->ObjectName.Buffer[1] == L':'))
++		{
++		  if (trailing)
++		    {
++		      /* If there's a trailing path, it's a perfectly valid
++			 DOS pathname without the \\.\ prefix.  Unless it's
++			 longer than MAX_PATH - 1 in which case it needs
++			 the \\?\ prefix. */
++		      if ((len = strlen (ret + 4)) >= MAX_PATH)
++			ret[2] = '?';
++		      else
++			memmove (ret, ret + 4, strlen (ret + 4) + 1);
++		    }
++		  NtClose (dir);
++		  goto out;
++		}
++	    }
++	}
++      NtClose (dir);
++    }
++
++out:
++  free (tgtdev.Buffer);
++  free (ntdev.Buffer);
++  if (!got_one)
++    {
++      free (ret);
++      ret = (char *) malloc (sizeof (GLOBALROOT_PREFIX) + strlen (path));
++      if (ret)
++      	stpcpy (stpcpy (ret, GLOBALROOT_PREFIX), path);
++    }
++  return ret;
++}
++
++char *
++cygpath_to_winpath(const char *path) {
++  char *buf;
++  ssize_t len;
++
++  len = cygwin_conv_path (CCP_POSIX_TO_WIN_A, path, NULL, 0);
++  buf = (char *) alloca (len);
++  cygwin_conv_path (CCP_POSIX_TO_WIN_A, path, buf, len);
++  return get_device_name(buf);
++}
++
++#ifdef CYGPATH_TEST
++int
++main(int argc, char *argv[])
++{
++  if(argc > 1)
++    printf("%s => %s\n", argv[1], cygpath_to_winpath(argv[1]));
++  return 0;
++}
++#endif /* CYGPATH_TEST */
++
++#endif /* __CYGWIN__ */
+--- origsrc/libcdio-0.93/lib/driver/MSWindows/win32.c	2014-06-20 21:10:56.000000000 -0500
++++ src/libcdio-0.93/lib/driver/MSWindows/win32.c	2015-10-29 23:08:27.241144500 -0500
+@@ -1029,13 +1029,21 @@ cdio_open_am_win32 (const char *psz_orig
+     set_arg_win32(_data, "source", psz_source);
+     free(psz_source);
+   } else {
+-    if (cdio_is_device_win32(psz_orig_source))
+-      set_arg_win32(_data, "source", psz_orig_source);
+-    else {
++#ifdef __CYGWIN__
++    if ((strstr(psz_orig_source, "/dev/") == psz_orig_source))
++      psz_source=cygpath_to_winpath(psz_orig_source);
++    else
++#endif
++      psz_source=strdup(psz_orig_source);
++    if (cdio_is_device_win32(psz_source)) {
++      set_arg_win32(_data, "source", psz_source);
++      free(psz_source);
++    } else {
+       /* The below would be okay as an info message if all device
+ 	 drivers worked this way. */
+       cdio_debug ("source %s is a not a device", psz_orig_source);
+       free(_data);
++      free(psz_source);
+       return NULL;
+     }
+   }
+--- origsrc/libcdio-0.93/lib/driver/MSWindows/win32.h	2014-06-20 21:10:56.000000000 -0500
++++ src/libcdio-0.93/lib/driver/MSWindows/win32.h	2015-10-29 23:13:36.822456300 -0500
+@@ -233,3 +233,7 @@ void get_drive_cap_win32ioctl (const _im
+ */
+ track_format_t get_track_format_win32ioctl(const _img_private_t *p_env, 
+ 					   track_t i_track); 
++
++#ifdef __CYGWIN__
++char *cygpath_to_winpath(const char *path);
++#endif
+--- origsrc/libcdio-0.93/lib/driver/Makefile.am	2014-09-24 19:48:35.000000000 -0500
++++ src/libcdio-0.93/lib/driver/Makefile.am	2015-10-29 23:00:23.742247900 -0500
+@@ -91,6 +91,7 @@ libcdio_sources = \
+ 	mmc/mmc_util.c \
+ 	MSWindows/aspi32.c \
+ 	MSWindows/aspi32.h \
++	MSWindows/cygpath.c \
+ 	MSWindows/win32_ioctl.c \
+ 	MSWindows/win32.c \
+ 	MSWindows/win32.h \

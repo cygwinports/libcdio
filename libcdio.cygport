@@ -1,7 +1,7 @@
 NAME="libcdio"
 VERSION=0.93
-RELEASE=1
-CATEGORY="Audio"
+RELEASE=2
+CATEGORY="Libs"
 SUMMARY="CD-ROM control library"
 DESCRIPTION="The libcdio package contains a library which encapsulates CD-ROM
 reading and control. Applications wishing to be oblivious of the OS- and
@@ -11,10 +11,12 @@ types like CDRWin's BIN/CUE format, cdrdao's TOC format, and Nero's NRG format
 are available. Therefore, applications that use this library also have the
 ability to read disc images as though they were CD's."
 HOMEPAGE="http://www.gnu.org/software/libcdio/"
-SRC_URI="mirror://gnu/libcdio/${P}.tar.gz"
+SRC_URI="mirror://gnu/libcdio/libcdio-${VERSION}.tar.gz"
+PATCH_URI="0.93-cygwin.patch"
 
 PKG_NAMES="${PN} libcdio16 libcdio++0 libiso9660_10 libiso9660++0 libudf0
            libcdio-devel libcdio++-devel"
+libcdio_CATEGORY="Audio"
 libcdio_SUMMARY="${SUMMARY% library} utilities"
 libcdio_CONTENTS="usr/bin/*.exe usr/share/"
 libcdio16_SUMMARY="${SUMMARY} (runtime)"
@@ -40,6 +42,5 @@ CYGCONF_ARGS="
 	--enable-vcd-info
 	--without-versioned-libs
 "
-CPPFLAGS="-I/usr/include/ncurses"
 
 KEEP_LA_FILES="none"
