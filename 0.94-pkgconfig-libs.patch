@@ -1,0 +1,40 @@
+--- origsrc/libcdio-0.94/libcdio++.pc.in	2008-11-28 22:52:43.000000000 -0600
++++ src/libcdio-0.94/libcdio++.pc.in	2017-07-05 15:11:20.062095800 -0500
+@@ -7,5 +7,6 @@ Name: @PACKAGE_NAME@++
+ Description: C++ OO Portable CD-ROM I/O library
+ Version: @PACKAGE_VERSION@
+ #Requires: glib-2.0 
+-Libs: -L${libdir} -lcdio++ -lcdio @LIBS@ @DARWIN_PKG_LIB_HACK@
++Libs: -L${libdir} -lcdio++ -lcdio
++Libs.private: @LIBS@ @DARWIN_PKG_LIB_HACK@
+ Cflags: -I${includedir}
+--- origsrc/libcdio-0.94/libcdio.pc.in	2008-12-30 09:48:48.000000000 -0600
++++ src/libcdio-0.94/libcdio.pc.in	2017-07-05 15:10:47.513316300 -0500
+@@ -7,5 +7,6 @@ Name: @PACKAGE_NAME@
+ Description: Portable CD-ROM I/O library
+ Version: @PACKAGE_VERSION@
+ #Requires: glib-2.0 
+-Libs: -L${libdir} -lcdio @LIBS@ @LTLIBICONV@ @DARWIN_PKG_LIB_HACK@
++Libs: -L${libdir} -lcdio
++Libs.private: @LIBS@ @LTLIBICONV@ @DARWIN_PKG_LIB_HACK@
+ Cflags: -I${includedir}
+--- origsrc/libcdio-0.94/libiso9660++.pc.in	2008-12-30 09:48:48.000000000 -0600
++++ src/libcdio-0.94/libiso9660++.pc.in	2017-07-05 15:13:06.394563900 -0500
+@@ -8,5 +8,6 @@ Name: libiso9660++
+ Description: C++ OO ISO-9660 library of libcdio
+ Version: @PACKAGE_VERSION@
+ Requires: libcdio 
+-Libs: -L${libdir} -liso9660++ -lcdio++ -liso9660 @LTLIBICONV@ -lcdio
++Libs: -L${libdir} -liso9660++ -lcdio++ -liso9660
++Libs.private: @LTLIBICONV@
+ Cflags: -I${includedir}
+--- origsrc/libcdio-0.94/libiso9660.pc.in	2008-12-30 09:48:48.000000000 -0600
++++ src/libcdio-0.94/libiso9660.pc.in	2017-07-05 15:12:22.568591300 -0500
+@@ -8,5 +8,6 @@ Name: libiso9660
+ Description: ISO-9660 library of libcdio
+ Version: @PACKAGE_VERSION@
+ Requires: libcdio 
+-Libs: -L${libdir} -liso9660 @LTLIBICONV@ -lcdio
++Libs: -L${libdir} -liso9660 -lcdio
++Libs.private: @LTLIBICONV@
+ Cflags: -I${includedir}

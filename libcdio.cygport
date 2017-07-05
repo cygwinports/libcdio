@@ -1,6 +1,6 @@
 NAME="libcdio"
-VERSION=0.93
-RELEASE=2
+VERSION=0.94
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="CD-ROM control library"
 DESCRIPTION="The libcdio package contains a library which encapsulates CD-ROM
@@ -12,7 +12,10 @@ are available. Therefore, applications that use this library also have the
 ability to read disc images as though they were CD's."
 HOMEPAGE="http://www.gnu.org/software/libcdio/"
 SRC_URI="mirror://gnu/libcdio/libcdio-${VERSION}.tar.gz"
-PATCH_URI="0.93-cygwin.patch"
+PATCH_URI="
+	0.93-cygwin.patch
+	0.94-pkgconfig-libs.patch
+"
 
 PKG_NAMES="${PN} libcdio16 libcdio++0 libiso9660_10 libiso9660++0 libudf0
            libcdio-devel libcdio++-devel"
