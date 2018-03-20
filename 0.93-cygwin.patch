@@ -267,7 +267,7 @@
 +#endif /* __CYGWIN__ */
 --- origsrc/libcdio-0.93/lib/driver/MSWindows/win32.c	2014-06-20 21:10:56.000000000 -0500
 +++ src/libcdio-0.93/lib/driver/MSWindows/win32.c	2015-10-29 23:08:27.241144500 -0500
-@@ -1029,13 +1029,21 @@ cdio_open_am_win32 (const char *psz_orig
+@@ -1042,12 +1042,20 @@ cdio_open_am_win32 (const char *psz_orig
      set_arg_win32(_data, "source", psz_source);
      free(psz_source);
    } else {
@@ -287,9 +287,8 @@
        /* The below would be okay as an info message if all device
  	 drivers worked this way. */
        cdio_debug ("source %s is a not a device", psz_orig_source);
-       free(_data);
 +      free(psz_source);
-       return NULL;
+       goto error_exit;
      }
    }
 --- origsrc/libcdio-0.93/lib/driver/MSWindows/win32.h	2014-06-20 21:10:56.000000000 -0500

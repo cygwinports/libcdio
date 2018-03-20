@@ -1,5 +1,5 @@
 NAME="libcdio"
-VERSION=0.94
+VERSION=2.0.0
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="CD-ROM control library"
@@ -17,17 +17,17 @@ PATCH_URI="
 	0.94-pkgconfig-libs.patch
 "
 
-PKG_NAMES="${PN} libcdio16 libcdio++0 libiso9660_10 libiso9660++0 libudf0
+PKG_NAMES="${PN} libcdio18 libcdio++1 libiso9660_11 libiso9660++0 libudf0
            libcdio-devel libcdio++-devel"
 libcdio_CATEGORY="Audio"
 libcdio_SUMMARY="${SUMMARY% library} utilities"
 libcdio_CONTENTS="usr/bin/*.exe usr/share/"
-libcdio16_SUMMARY="${SUMMARY} (runtime)"
-libcdio16_CONTENTS="usr/bin/cygcdio-16.dll"
-libcdio__0_SUMMARY="${SUMMARY} (CDIO C++ runtime)"
-libcdio__0_CONTENTS="usr/bin/cygcdio++-0.dll"
-libiso9660_10_SUMMARY="ISO-9660 filesystem library (C runtime)"
-libiso9660_10_CONTENTS="usr/bin/cygiso9660-10.dll"
+libcdio18_SUMMARY="${SUMMARY} (runtime)"
+libcdio18_CONTENTS="usr/bin/cygcdio-18.dll"
+libcdio__1_SUMMARY="${SUMMARY} (CDIO C++ runtime)"
+libcdio__1_CONTENTS="usr/bin/cygcdio++-1.dll"
+libiso9660_11_SUMMARY="ISO-9660 filesystem library (C runtime)"
+libiso9660_11_CONTENTS="usr/bin/cygiso9660-11.dll"
 libiso9660__0_SUMMARY="ISO-9660 filesystem library (C++ runtime)"
 libiso9660__0_CONTENTS="usr/bin/cygiso9660++-0.dll"
 libudf0_SUMMARY="UDF library (runtime)"
@@ -45,5 +45,3 @@ CYGCONF_ARGS="
 	--enable-vcd-info
 	--without-versioned-libs
 "
-
-KEEP_LA_FILES="none"
